@@ -130,7 +130,7 @@ const Form = ({ setIsUpload500Error, setIsUpload502Error, setIsUploadPerfect }) 
                 <ImgUploader setFormData={setFormData} displayError={displayError} formData={formData} />
                 <ReCAPTCHA
                     className="mt-3"
-                    sitekey="6LdjSdIqAAAAANXjx3UYKzTmDGqFhizfTue45CGe"
+                    sitekey="6Leb0hgsAAAAAPPr4ylExS_gdBKhnpHBW1OKfiv4"
                     onChange={handleCaptchaChange}
                 />
                 {token &&
