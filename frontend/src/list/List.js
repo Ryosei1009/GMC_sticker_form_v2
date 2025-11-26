@@ -7,7 +7,6 @@ const List = () => {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [totalStickers, setTotalStickers] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchInput, setSearchInput] = useState('');
     const [showOnlyMine, setShowOnlyMine] = useState(false);
@@ -21,38 +20,37 @@ const List = () => {
     }, []);
 
     useEffect(() => {
+        const fetchStickers = async () => {
+            const uuidArray = localStorage.getItem("uuid");
+            if (!uuidArray) return;
+
+            setLoading(true);
+            try {
+                const params = new URLSearchParams({
+                    page: currentPage.toString(),
+                    limit: '100',
+                    search: searchTerm,
+                    showOnlyMine: showOnlyMine.toString()
+                });
+
+                const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/get/approved_and_self?${params}`, {
+                    headers: {
+                        'uuid': uuidArray,
+                    }
+                });
+
+                const data = await response.json();
+                setStickers(data.stickers);
+                setTotalPages(data.pagination.totalPages);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchStickers();
     }, [currentPage, searchTerm, showOnlyMine]);
-
-    const fetchStickers = async () => {
-        const uuidArray = localStorage.getItem("uuid");
-        if (!uuidArray) return;
-
-        setLoading(true);
-        try {
-            const params = new URLSearchParams({
-                page: currentPage.toString(),
-                limit: '100',
-                search: searchTerm,
-                showOnlyMine: showOnlyMine.toString()
-            });
-
-            const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/get/approved_and_self?${params}`, {
-                headers: {
-                    'uuid': uuidArray,
-                }
-            });
-
-            const data = await response.json();
-            setStickers(data.stickers);
-            setTotalPages(data.pagination.totalPages);
-            setTotalStickers(data.pagination.totalStickers);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const handleSearchInputChange = (e) => {
         setSearchInput(e.target.value);

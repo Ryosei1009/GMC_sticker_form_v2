@@ -8,7 +8,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import AdminList from "./admin/AdminList";
 import NotFound from "./utils/NotFound";
-import Loading from "./utils/Loading";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token') || null);
