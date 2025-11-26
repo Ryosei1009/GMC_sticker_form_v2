@@ -11,7 +11,7 @@ const EachSticker = ({ sticker, token }) => {
     const handleCancel = async () => {
         try {
             setIsCancel(1);
-            await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker/cancel/admin`, {}, {
+            await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/cancel/admin`, {}, {
                 headers: {
                     auth: token,
                     uuid: sticker.unique_code
@@ -27,7 +27,7 @@ const EachSticker = ({ sticker, token }) => {
     const handleAdd = async () => {
         try {
             setIsAdd(1);
-            await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker/add/admin`, {}, {
+            await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/add/admin`, {}, {
                 headers: {
                     auth: token,
                     uuid: sticker.unique_code

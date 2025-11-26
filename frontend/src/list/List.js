@@ -37,7 +37,7 @@ const List = () => {
                 showOnlyMine: showOnlyMine.toString()
             });
 
-            const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker/get/approved_and_self?${params}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/get/approved_and_self?${params}`, {
                 headers: {
                     'uuid': uuidArray,
                 }

@@ -9,7 +9,7 @@ const AdminList = ({ userInfo }) => {
   useEffect(() => {
     async function fetchStickers() {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker/get/all`, {
+        const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/get/all`, {
           headers: {
             'auth': token,
             'role': userInfo[0].role,

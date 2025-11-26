@@ -12,7 +12,7 @@ const EachSticker = ({ sticker, userUuids = [] }) => {
     const handleCancel = async () => {
         try {
             setIsCancel(1);
-            await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker/cancel`, {}, {
+            await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/cancel`, {}, {
                 headers: {
                     uuid: sticker.unique_code
                 }

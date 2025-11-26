@@ -28,7 +28,7 @@ const Form = ({ setIsUpload500Error, setIsUpload502Error, setIsUploadPerfect }) 
             return
         }
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker/upload`, formData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
