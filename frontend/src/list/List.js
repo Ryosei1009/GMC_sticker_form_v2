@@ -22,7 +22,6 @@ const List = () => {
     useEffect(() => {
         const fetchStickers = async () => {
             const uuidArray = localStorage.getItem("uuid");
-            if (!uuidArray) return;
 
             setLoading(true);
             try {
