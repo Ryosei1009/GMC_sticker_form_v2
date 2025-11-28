@@ -728,7 +728,7 @@ const AdminList = ({ userInfo }) => {
 
   const handleDownloadImages = async (category) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker/download`, {
+      const response = await fetch(`${process.env.REACT_APP_API_DOMAIN}/sticker_v2/download`, {
         headers: {
           'auth': token,
           'category': category,
@@ -743,7 +743,7 @@ const AdminList = ({ userInfo }) => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'stickers.zip';
+      a.download = `gmc${category}.zip`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
