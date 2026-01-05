@@ -51,18 +51,18 @@ const EachSticker = ({ sticker, token }) => {
                 <div className="w-72 bg-white rounded-lg shadow-md m-4 relative pt-2 pb-1 flex flex-col justify-between border-accent border-4 hover:bg-gray-300 cursor-pointer hover:border-purple-500">
                     <div className="flex flex-col items-center">
                         {isAdd === 1 &&
-                            <div className="text-end w-full h-72 px-2 text-green-400 font-bold">
+                            <div className="text-end w-full h-9 px-2 text-green-400 font-bold">
                                 追加済み
                             </div>
                         }
                         {isCancel === 1 &&
-                            <div className="text-end w-full h-72 px-2 text-red-600 font-bold">
+                            <div className="text-end w-full h-9 px-2 text-red-600 font-bold">
                                 キャンセル済み
                             </div>
                         }
                         {(isCancel === 0 && isAdd === 0) &&
                             <div className="w-full flex justify-between items-center px-2 pb-1">
-                                <div className={`bg-green-500 p-1 rounded-lg`}
+                                <div className={`bg-green-500 p-8 rounded-lg`}
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         handleAdd();
@@ -70,7 +70,7 @@ const EachSticker = ({ sticker, token }) => {
                                 >
                                     <CheckIcon className="w-6 h-6 fill-white" />
                                 </div>
-                                <div className={`bg-red-500 p-1 rounded-lg`}
+                                <div className={`bg-red-500 p-8 rounded-lg`}
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         handleCancel();
