@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Footer = () => {
     return (
         <>
@@ -35,7 +33,9 @@ const Footer = () => {
                             </div>
                             <div className="ml-2 flex-col flex">
                                 <a href="https://www.gmcrp.net" className="text-gray-700 hover:underline">市民リスト</a>
-                                <a href="https://sticker.gmcrp.net" className="text-gray-700 hover:underline mt-2">ステッカー申請フォーム</a>
+                                <a href="https://www.gmcrp.net/storelist" className="text-gray-700 hover:underline">店舗リスト</a>
+                                <a href="https://www.gmcrp.net/vehiclelist" className="text-gray-700 hover:underline">車両カタログ</a>
+                                <a href="https://sticker2.gmcrp.net" className="text-gray-700 hover:underline mt-2">ステッカー申請フォーム v2</a>
                             </div>
                         </div>
                     </div>
